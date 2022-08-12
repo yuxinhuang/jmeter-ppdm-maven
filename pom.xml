@@ -54,9 +54,6 @@
 	        <configuration>
 	        	<testFilesDirectory>src/test/jmeter/bin/</testFilesDirectory>
 	        	<resultsDirectory>target/jmeter/results/test-${testNum}</resultsDirectory>
-	        	<customPropertiesFiles>
-                      <file>src/test/jmeter/bin/test.properties</file>
-                </customPropertiesFiles>
                 <propertiesUser>
 				    <testNum>${testNum}</testNum>
                 	<IP>${IP}</IP>

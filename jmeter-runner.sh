@@ -1,6 +1,6 @@
 #!/bin/bash
 # arg[1] csv file directory
-
+mvn clean
 {
 	RESULT_DIR=data/test-results;
 	# Check the file is exists or not
@@ -22,6 +22,6 @@
 			mkdir $POST_DIR;
 		fi
 		
-		mvn clean install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -Ddependencies=$dependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime
+		mvn install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -Ddependencies=$dependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime
 	done
-} < $1
+} < src/test/jmeter/data/$1

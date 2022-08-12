@@ -2,7 +2,7 @@
 # arg[1] csv file directory
 
 {
-	RESULT_DIR=target/jmeter/test-results;
+	RESULT_DIR=data/test-results;
 	# Check the file is exists or not
 	if [ -d "$RESULT_DIR" ]; then
 	   	# Remove  the file with permission

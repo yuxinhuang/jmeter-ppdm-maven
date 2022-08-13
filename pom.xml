@@ -53,7 +53,8 @@
 	        </executions>
 	        <configuration>
 	        	<testFilesDirectory>src/test/jmeter/bin/</testFilesDirectory>
-	        	<resultsDirectory>target/jmeter/results/test-${testNum}</resultsDirectory>
+	        	<resultsDirectory>target/jmeter/results/</resultsDirectory>
+	        	<generateReports>true</generateReports>
                 <propertiesUser>
 				    <testNum>${testNum}</testNum>
                 	<IP>${IP}</IP>

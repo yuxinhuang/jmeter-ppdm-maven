@@ -52,7 +52,7 @@
 	            </execution>
 	        </executions>
 	        <configuration>
-	        	<testFilesDirectory>src/test/jmeter/bin/</testFilesDirectory>
+	        	<testFilesDirectory>src/test/jmeter/</testFilesDirectory>
 	        	<resultsDirectory>target/jmeter/results/</resultsDirectory>
 	        	<generateReports>true</generateReports>
                 <propertiesUser>

@@ -69,6 +69,8 @@
 				    <numThreads>${numThreads}</numThreads>
 				    <requestsPerThread>${requestsPerThread}</requestsPerThread>
 				    <rampUpTime>${rampUpTime}</rampUpTime>
+				    <jmeter.reportgenerator.overall_granularity>1000
+				    </jmeter.reportgenerator.overall_granularity> 
 				</propertiesUser>
 	        </configuration>
 	    </plugin>

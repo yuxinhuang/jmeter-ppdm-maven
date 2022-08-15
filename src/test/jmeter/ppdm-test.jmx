@@ -278,7 +278,7 @@ if (debug) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${__eval(${__FileToString(data/${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
+                  <stringProp name="Argument.value">${__eval(${__FileToString(${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -330,12 +330,13 @@ import org.apache.jmeter.assertions.AssertionResult;
 
 String data = ctx.getCurrentSampler().getArguments().getArgument(0).getValue();
 int threadNum = ctx.getThreadNum();
+int testNum = props.get(&quot;testNum&quot;);
 int loop = ctx.getVariables().getIteration();
 boolean debug = true;
 if (debug) {
 	for (AssertionResult a : sampleResult.getAssertionResults()) {
 		if (a.isError() || a.isFailure()) {
-			String fileName = &quot;failed-post-requests/test-&quot; + ${__P(testNum)} +
+			String fileName = &quot;failed-post-requests/test-&quot; + testNum +
 				&quot;-request-body-&quot; + threadNum + &quot;-&quot; + loop + &quot;.txt&quot;;
 			 FileUtils.writeStringToFile(new File(fileName),data);
 		}

@@ -28,6 +28,7 @@ fi
 		mv target/jmeter/logs/*.log target/jmeter/logs/test-$testNum.log
 		cp target/jmeter/logs/*.log $TEST_DIR
 		rm target/jmeter/logs/*.log
+		mkdir $TEST_DIR/dashboard-files
 		cp -r target/jmeter/reports/ppdm-test/* $TEST_DIR/dashboard-files
 		rm -r target/jmeter/reports/ppdm-test/*
 	done

@@ -336,8 +336,8 @@ boolean debug = true;
 if (debug) {
 	for (AssertionResult a : sampleResult.getAssertionResults()) {
 		if (a.isError() || a.isFailure()) {
-			String fileName = &quot;...../listener-data/failed-post-requests/test-&quot; + ${__P(testNum)} +
-						   &quot;-request-body-&quot; + threadNum + &quot;-&quot; + loop + &quot;.txt&quot;;
+			String fileName = &quot;data/test-&quot; + ${__P(testNum)} +
+				&quot;-request-body-&quot; + threadNum + &quot;-&quot; + loop + &quot;.txt&quot;;
 			FileUtils.writeStringToFile(new File(fileName),data);
 		}
 	}

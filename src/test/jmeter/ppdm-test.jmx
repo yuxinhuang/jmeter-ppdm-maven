@@ -203,13 +203,12 @@ boolean debug = true;
 if (debug) {
 	for (AssertionResult a : sampleResult.getAssertionResults()) {
 		if (a.isError() || a.isFailure()) {
-			String fileName = &quot;data/test-results/test-&quot; + ${__P(testNum)} +
-				&quot;/failed-post-requests/setup-request-body-&quot; + ${loopNum} + &quot;-&quot; + loop + &quot;.txt&quot;;
+			String fileName = &quot;failed-post-requests/test-&quot; + ${__P(testNum)} + &quot;-setup-request-body-&quot; +
+			${loopNum} + &quot;-&quot; + loop + &quot;.txt&quot;;
 			 FileUtils.writeStringToFile(new File(fileName),data);
 		}
 	}
-}
-</stringProp>
+}</stringProp>
                 </BeanShellListener>
                 <hashTree/>
               </hashTree>
@@ -279,7 +278,7 @@ if (debug) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${__eval(${__FileToString(${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
+                  <stringProp name="Argument.value">${__eval(${__FileToString(data/${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -336,13 +335,12 @@ boolean debug = true;
 if (debug) {
 	for (AssertionResult a : sampleResult.getAssertionResults()) {
 		if (a.isError() || a.isFailure()) {
-			String fileName = &quot;test-&quot; + ${__P(testNum)} +
+			String fileName = &quot;failed-post-requests/test-&quot; + ${__P(testNum)} +
 				&quot;-request-body-&quot; + threadNum + &quot;-&quot; + loop + &quot;.txt&quot;;
-			FileUtils.writeStringToFile(new File(fileName),data);
+			 FileUtils.writeStringToFile(new File(fileName),data);
 		}
 	}
-}
-</stringProp>
+}</stringProp>
             </BeanShellListener>
             <hashTree/>
           </hashTree>

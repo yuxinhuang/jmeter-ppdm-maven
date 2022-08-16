@@ -1,0 +1,19 @@
+{
+    "naturalIds": ["${__UUID()}"],    
+    "name": "Application System ${__threadNum}",    
+    "type": "MICROSOFT_SQL_DATABASE_SYSTEM",    
+    "categories": ["APPLICATION_SYSTEM"],    
+    "vendor": "MICROSOFT",
+    "applicationClusterDetail": {
+        "name": "ClusterDetail for MsSqlDatabaseSystem",    
+        "type": "AAG",    
+        "addresses": [{
+            "value": "10.29.170.2", 
+            "type": "IPV4"
+        }]
+    },
+    "applicationHostRef": {
+        "id": "${__P(hostID)}",
+        "name": "ApplicationHost for MsSqlDatabaseSystemTest"
+    }
+}

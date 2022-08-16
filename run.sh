@@ -4,37 +4,15 @@ RESULT_DIR=target/jmeter/results
 mvn clean
 {
 	read
-	while IFS=',', read -r testNum IP port URI username password verb bodyFile numDependencies dependencies numThreads requestsPerThread rampUpTime || [ -n "$rampUpTime" ]
+	while IFS=',', read -r testNum IP port URI username password verb bodyFile numDependencies listDependencies numThreads requestsPerThread rampUpTime || [ -n "$rampUpTime" ]
 	do
 		echo "Test Number : $testNum"
-		mvn install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -Ddependencies=$dependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime -Dreportgenerator.properties.overall_granularity=1000 &
+		mvn install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -DlistDependencies=$listDependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime -Dreportgenerator.properties.overall_granularity=1000 &
 		wait
 
-		TEST_DIR=$RESULT_DIR/test-$testNum
-		mkdir $TEST_DIR
-		if [ -d target/jmeter/listener-data ]; then
-			rm -r target/jmeter/listener-data	
-		fi
-		mkdir target/jmeter/listener-data
-		POST_DIR=target/jmeter/listener-data/failed-post-requests
-		OLD_POST_DIR=target/????????-????-????-????-????????????/jmeter/bin/failed-post-requests
-		if [ $verb == "POST" ] && [ -d $OLD_POST_DIR ]; then
-			mkdir $POST_DIR
-			cp -vr $OLD_POST_DIR/* $POST_DIR
-		fi
-		# rm -vr target/????????-????-????-????-????????????
-		mv $RESULT_DIR/*.csv $RESULT_DIR/test-$testNum-jtl.csv
-		cp $RESULT_DIR/*.csv $TEST_DIR
-		rm $RESULT_DIR/*.csv
-		mv target/jmeter/logs/*.log target/jmeter/logs/test-$testNum.log
-		cp target/jmeter/logs/*.log $TEST_DIR
-		rm target/jmeter/logs/*.log
-		mkdir $TEST_DIR/dashboard-files
-		cp -r target/jmeter/reports/ppdm-test/* $TEST_DIR/dashboard-files
-		rm -r target/jmeter/reports/ppdm-test/*
+		mv target/jmeter/results/*-ppdm-test.csv target/jmeter/results/test-$testNum-jtl.csv
+		mv target/jmeter/logs/ppdm-test.jmx.log target/jmeter/logs/test-$testNum.log
+		mv target/jmeter/reports/ppdm-test target/jmeter/reports/test-$testNum
+		mv target/????????-????-????-????-???????????? target/test-$testNum-internal-files
 	done
 } < src/test/jmeter/$1
-
-rm -r target/jmeter/logs
-rm -r target/jmeter/reports
-rm -r target/jmeter/testFiles

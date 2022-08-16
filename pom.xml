@@ -6,23 +6,6 @@
 	<groupId>com.dell.jmeterPPDM</groupId>  
 	<artifactId>jmeter-ppdm-maven</artifactId>  
 	<version>1.0.0</version>
-	<properties>
-	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	    <testNum>testNum</testNum>
-    	    <IP>IP</IP>
-	    <port>port</port>
-	    <URI>URI</URI>
-	    <username>username</username>
-	    <password>password</password>
-	    <verb>verb</verb>
-	    <bodyFile>bodyFile</bodyFile>
-	    <numDependencies>numDependencies</numDependencies>
-	    <dependencies>dependencies</dependencies>
-	    <numThreads>numThreads</numThreads>
-	    <requestsPerThread>requestsPerThread</requestsPerThread>
-	    <rampUpTime>rampUpTime</rampUpTime>
-	    <source>src\test\jmeter\</source>
-	</properties>
 	<build>
 	    <plugins>
 	        <plugin>
@@ -53,10 +36,9 @@
 	            </execution>
 	        </executions>
 	        <configuration>
-	        	<testFilesDirectory>src/test/jmeter/</testFilesDirectory>
-	        	<resultsDirectory>target/jmeter/results/</resultsDirectory>
 	        	<generateReports>true</generateReports>
                         <propertiesUser>
+				    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 				    <testNum>${testNum}</testNum>
                 		    <IP>${IP}</IP>
 				    <port>${port}</port>
@@ -66,7 +48,7 @@
 				    <verb>${verb}</verb>
 				    <bodyFile>${bodyFile}</bodyFile>
 				    <numDependencies>${numDependencies}</numDependencies>
-				    <dependencies>${dependencies}</dependencies>
+				    <listDependencies>${listDependencies}</listDependencies>
 				    <numThreads>${numThreads}</numThreads>
 				    <requestsPerThread>${requestsPerThread}</requestsPerThread>
 				    <rampUpTime>${rampUpTime}</rampUpTime>

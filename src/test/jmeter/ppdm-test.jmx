@@ -100,7 +100,7 @@ props.put(&quot;bodyFilePath&quot;, templateFileContent);</stringProp>
             <hashTree/>
           </hashTree>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Dependencies" enabled="true">
-            <stringProp name="IfController.condition">${__jexl3(props.get(&quot;dependencies&quot;)!=&quot;NA&quot;)}</stringProp>
+            <stringProp name="IfController.condition">${__jexl3(props.get(&quot;listDependencies&quot;)!=&quot;NA&quot;)}</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
             <boolProp name="IfController.useExpression">true</boolProp>
           </IfController>
@@ -108,7 +108,7 @@ props.put(&quot;bodyFilePath&quot;, templateFileContent);</stringProp>
             <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Dependency Parser" enabled="true">
               <stringProp name="cacheKey">true</stringProp>
               <stringProp name="filename"></stringProp>
-              <stringProp name="parameters">${__P(dependencies)}</stringProp>
+              <stringProp name="parameters">${__P(listDependencies)}</stringProp>
               <stringProp name="script">if(!args[0].equals(&quot;NA&quot;)) {
 	def dependencyArray = [];
 	if(args[0].contains(&quot;~&quot;)) {

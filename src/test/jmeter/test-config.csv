@@ -1,4 +1,4 @@
-testNum,IP,port,URI,username,password,verb,bodyFile,numDependencies,dependencies,numThreads,requestsPerThread,rampUpTime
+testNum,IP,port,URI,username,password,verb,bodyFile,numDependencies,listDependencies,numThreads,requestsPerThread,rampUpTime
 1,10.235.46.217,8580,/api/v3/infrastructure-objects,admin,Changeme@1,GET,NA,0,NA,250,10,10
 2,10.235.46.217,8580,/api/v3/assets,admin,Changeme@1,GET,NA,0,NA,250,10,10
 3,10.235.46.217,8580,/api/v3/application-systems,admin,Changeme@1,GET,NA,0,NA,250,10,10

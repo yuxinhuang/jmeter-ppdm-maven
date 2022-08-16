@@ -7,9 +7,9 @@
 	<artifactId>jmeter-ppdm-maven</artifactId>  
 	<version>1.0.0</version>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <testNum>testNum</testNum>
-    	<IP>IP</IP>
+    	    <IP>IP</IP>
 	    <port>port</port>
 	    <URI>URI</URI>
 	    <username>username</username>
@@ -21,6 +21,7 @@
 	    <numThreads>numThreads</numThreads>
 	    <requestsPerThread>requestsPerThread</requestsPerThread>
 	    <rampUpTime>rampUpTime</rampUpTime>
+	    <source>${project.basedir}/src/jmeter</source>
 	</properties>
 	<build>
 	    <plugins>

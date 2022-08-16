@@ -1,0 +1,1 @@
+${__eval(${__FileToString(${__eval(${project.build.sourceDirectory})/test/jmeter/${__eval(${__P(bodyFile)})}.json,,)})}

@@ -28,6 +28,39 @@
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
         <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import org.apache.jmeter.services.FileServer;
+import groovy.io.FileType;
+
+//String sourceDirectory = new File(props.get(&quot;source&quot;)).absolutePath;
+String sourceDirectory = &quot;hello&quot;;
+File testFileOne = new File(&quot;test1.txt&quot;);
+testFileOne &lt;&lt; sourceDirectory;
+// String configContents = new File(&quot;.&quot;).getParent().getParent().absolutePath;
+// String testContents = new File(&quot;.&quot;).getParentFile().getParentFile().getParentFile().getParentFile().absolutePath;
+// String testContents = new File(&quot;...../src/test/jmeter/application-system-template.json&quot;).text;
+/*def list = [];
+def dir = new File(baseDirectory);
+dir.eachFileRecurse (FileType.FILES) { file -&gt;
+  list &lt;&lt; file;
+}*/
+// String templateFile = new File(props.get(&quot;bodyFile&quot;).json).text;
+
+// ${__eval(${__FileToString(${__eval(props.get(&quot;bodyFile&quot;))}.json,,)})};
+// props.put(templateFile, templateFile);
+// def propFile = new File(&quot;failed-post-requests/myProp.txt&quot;);
+// propFile &lt;&lt; props.get(&quot;templateFile&quot;);
+
+// def testFileTwo = new File(&quot;test2.txt&quot;);
+// def testFileThree = new File(&quot;test3.txt&quot;);
+// testFileTwo &lt;&lt; configContents;
+// testFileThree &lt;&lt; testContents;</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LoginPost" enabled="true">
             <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
               <collectionProp name="HTTPFileArgs.files">
@@ -278,7 +311,7 @@ if (debug) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${__eval(${__FileToString(${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
+                  <stringProp name="Argument.value">${__eval(${__FileToString(${__eval(${project.build.sourceDirectory})/test/jmeter/${__eval(${__P(bodyFile)})}.json,,)})}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -321,28 +354,28 @@ if (debug) {
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BeanShellListener guiclass="TestBeanGUI" testclass="BeanShellListener" testname="Failed POST Body Logger" enabled="true">
-              <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="parameters"></stringProp>
+            <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="Failed POST Body Listener" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
               <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
               <stringProp name="script">import org.apache.commons.io.FileUtils;
 import org.apache.jmeter.assertions.AssertionResult;
 
 String data = ctx.getCurrentSampler().getArguments().getArgument(0).getValue();
 int threadNum = ctx.getThreadNum();
-int testNum = props.get(&quot;testNum&quot;);
 int loop = ctx.getVariables().getIteration();
 boolean debug = true;
 if (debug) {
 	for (AssertionResult a : sampleResult.getAssertionResults()) {
 		if (a.isError() || a.isFailure()) {
-			String fileName = &quot;failed-post-requests/test-&quot; + testNum +
+			String fileName = &quot;failed-post-requests/test-&quot; + props.get(&quot;testNum&quot;) +
 				&quot;-request-body-&quot; + threadNum + &quot;-&quot; + loop + &quot;.txt&quot;;
 			 FileUtils.writeStringToFile(new File(fileName),data);
 		}
 	}
 }</stringProp>
-            </BeanShellListener>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Listener>
             <hashTree/>
           </hashTree>
         </hashTree>

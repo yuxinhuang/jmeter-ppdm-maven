@@ -7,9 +7,8 @@ mvn clean
 	while IFS=',', read -r testNum IP port URI username password verb bodyFile numDependencies dependencies numThreads requestsPerThread rampUpTime || [ -n "$rampUpTime" ]
 	do
 		echo "Test Number : $testNum"
-		mvn install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -Ddependencies=$dependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime -Dreportgenerator.properties.overall_granularity=1000 &
+		mvn install -DtestNum=$testNum -DIP=$IP -Dport=$port -DURI=${URI//////} -Dusername=$username -Dpassword=$password -Dverb=$verb -DbodyFile=$bodyFile -DnumDependencies=$numDependencies -Ddependencies=$dependencies -DnumThreads=$numThreads -DrequestsPerThread=$requestsPerThread -DrampUpTime=$rampUpTime -Djmeter.reportgenerator.overall_granularity=1000 &
 		wait
-
 		TEST_DIR=$RESULT_DIR/test-$testNum
 		mkdir $TEST_DIR
 		if ! [ -d target/jmeter/listener-data ]; then

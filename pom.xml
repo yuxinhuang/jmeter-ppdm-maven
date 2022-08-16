@@ -21,7 +21,7 @@
 	    <numThreads>numThreads</numThreads>
 	    <requestsPerThread>requestsPerThread</requestsPerThread>
 	    <rampUpTime>rampUpTime</rampUpTime>
-	    <source>${project.basedir}/src/jmeter</source>
+	    <source>src\test\jmeter\</source>
 	</properties>
 	<build>
 	    <plugins>
@@ -56,9 +56,9 @@
 	        	<testFilesDirectory>src/test/jmeter/</testFilesDirectory>
 	        	<resultsDirectory>target/jmeter/results/</resultsDirectory>
 	        	<generateReports>true</generateReports>
-                <propertiesUser>
+                        <propertiesUser>
 				    <testNum>${testNum}</testNum>
-                	<IP>${IP}</IP>
+                		    <IP>${IP}</IP>
 				    <port>${port}</port>
 				    <URI>${URI}</URI>
 				    <username>${username}</username>
@@ -70,9 +70,9 @@
 				    <numThreads>${numThreads}</numThreads>
 				    <requestsPerThread>${requestsPerThread}</requestsPerThread>
 				    <rampUpTime>${rampUpTime}</rampUpTime>
-				    <jmeter.reportgenerator.overall_granularity>1000
-				    </jmeter.reportgenerator.overall_granularity> 
-				</propertiesUser>
+				    <jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
+				    <source>${project.basedir}\src\test\jmeter\</source>
+			</propertiesUser>
 	        </configuration>
 	    </plugin>
 	    </plugins>

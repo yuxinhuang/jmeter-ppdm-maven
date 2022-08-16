@@ -37,6 +37,7 @@
 	        </executions>
 	        <configuration>
 	        	<generateReports>true</generateReports>
+			<ignoreResultFailures>true</ignoreResultFailures>
                         <propertiesUser>
 				    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 				    <testNum>${testNum}</testNum>

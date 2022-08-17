@@ -2,13 +2,14 @@
 JMeter PPDM is a performance testing tool for APIs. The tool adds a command line script to Apache JMeter to improve its automation capabilities.
 
 ## Quickstart
-To run JMeter PPDM, open a bash terminal and run the run.sh script. The script takes one argument: the name of .csv config file, which should be located inside of src/test/jmeter. As an example, try using **test-config.csv**. Basic response time metrics (min, max, avg) and the number of successful and unsuccessful requests will be displayed inside the terminal. All relevant test results will be found in the **target/jmeter** folder.
+To run JMeter PPDM, open a bash terminal and run the run.sh script. The script takes one argument: the name of .csv config file, which should be located inside of src/test/jmeter. As an example, try using **test-config.csv**. Basic response time metrics (min, max, avg) and the number of successful and unsuccessful requests will be displayed inside the terminal. All relevant test results will be found in the **target/jmeter** folder. You can start the GUI (which is used for editing test plans) with the Maven command *mvn jmeter:configure jmeter:gui*.
 
 ## Project Contents
 - **run.sh**: Bash script for running JMeter PPDM. The script takes one parameter: a .csv config file. It runs "mvn clean" once followed by "mvn install <specified parameters>" for each test in the file.
 - **pom.xml**: A POM file for running the project with Maven.
-- **src/test/jmeter**: Contains test files + configuration files
-    - **ppdm-test.jmx**: Default JMeter test file, which is designed to run with parameters passed from **test-config.csv**.
+- **src/test/jmeter/**: Contains JMeter .jmx files for running tests.
+    - - **ppdm-test.jmx**: Default JMeter test file, which is designed to run with parameters passed from **test-config.csv**.
+- **src/test/resources**: Contains configuration files, which includes template JSONs and config CSVs.
     - **.-config.csv**: Configuration files for JMeter PPDM. Must contain the following parameters (with headers): 
         - *testNum*: Index of test. MUST be unique for results to be logged properly.
         - *IP*: IP of machine. 

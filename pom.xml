@@ -6,6 +6,9 @@
 	<groupId>com.dell.jmeterPPDM</groupId>  
 	<artifactId>jmeter-ppdm-maven</artifactId>  
 	<version>1.0.0</version>
+	<properties>
+    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<build>
 	    <plugins>
 	        <plugin>
@@ -39,7 +42,6 @@
 	        	<generateReports>true</generateReports>
 			<ignoreResultFailures>true</ignoreResultFailures>
                         <propertiesUser>
-				    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 				    <testNum>${testNum}</testNum>
                 		    <IP>${IP}</IP>
 				    <port>${port}</port>
@@ -54,7 +56,7 @@
 				    <requestsPerThread>${requestsPerThread}</requestsPerThread>
 				    <rampUpTime>${rampUpTime}</rampUpTime>
 				    <jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
-				    <source>${project.basedir}\src\test\jmeter\</source>
+				    <resources>${project.basedir}\src\test\resources\</resources>
 			</propertiesUser>
 	        </configuration>
 	    </plugin>

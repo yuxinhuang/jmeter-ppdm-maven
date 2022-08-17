@@ -36,7 +36,7 @@
             <stringProp name="script">import org.apache.jmeter.services.FileServer;
 import groovy.io.FileType;
 
-String templateFilePath = props.get(&quot;source&quot;) + props.get(&quot;bodyFile&quot;) + &quot;.json&quot;;
+String templateFilePath = props.get(&quot;resources&quot;) + props.get(&quot;bodyFile&quot;) + &quot;.json&quot;;
 String templateFileContent = new File(templateFilePath).text;
 props.put(&quot;bodyFilePath&quot;, templateFileContent);</stringProp>
           </JSR223PreProcessor>
@@ -122,7 +122,7 @@ props.put(&quot;bodyFilePath&quot;, templateFileContent);</stringProp>
 		props.put(${__eval(&quot;preURI&quot; + i)}, entries[0]);
 		props.put(${__eval(&quot;prebodyFile&quot; + i)}, entries[1]);
 		props.put(${__eval(&quot;prefieldName&quot; + i)}, entries[2]);
-		String templateFilePath = props.get(&quot;source&quot;) + props.get(${__eval(&quot;prebodyFile&quot; + i)}) + &quot;.json&quot;;
+		String templateFilePath = props.get(&quot;resources&quot;) + props.get(${__eval(&quot;prebodyFile&quot; + i)}) + &quot;.json&quot;;
 		String templateFileContent = new File(templateFilePath).text;
 		props.put(${__eval(&quot;prebodyFilePath&quot; + i)}, templateFileContent);
 	}

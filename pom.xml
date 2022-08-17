@@ -39,6 +39,11 @@
 	            </execution>
 	        </executions>
 	        <configuration>
+			<jMeterProcessJVMSettings>
+                            <arguments>
+                                <argument>-Dnashorn.args=--no-deprecation-warning</argument>
+                            </arguments>
+                        </jMeterProcessJVMSettings>
 	        	<generateReports>true</generateReports>
 			<ignoreResultFailures>true</ignoreResultFailures>
                         <propertiesUser>

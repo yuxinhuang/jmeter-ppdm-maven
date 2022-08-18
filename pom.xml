@@ -61,7 +61,7 @@
 				    <requestsPerThread>${requestsPerThread}</requestsPerThread>
 				    <rampUpTime>${rampUpTime}</rampUpTime>
 				    <jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
-				    <resources>${project.basedir}\src\test\resources\</resources>
+				    <resources>${project.basedir}/src/test/resources/</resources>
 			</propertiesUser>
 	        </configuration>
 	    </plugin>

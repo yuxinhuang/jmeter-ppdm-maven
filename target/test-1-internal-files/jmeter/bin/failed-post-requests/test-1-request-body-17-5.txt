@@ -1,0 +1,19 @@
+{
+    "naturalIds": ["7a62c918-86c1-4c8b-9b5b-71288ec03d39"],    
+    "name": "Application System 18",    
+    "type": "MICROSOFT_SQL_DATABASE_SYSTEM",    
+    "categories": ["APPLICATION_SYSTEM"],    
+    "vendor": "MICROSOFT",
+    "applicationClusterDetail": {
+        "name": "ClusterDetail for MsSqlDatabaseSystem",    
+        "type": "AAG",    
+        "addresses": [{
+            "value": "10.29.170.2", 
+            "type": "IPV4"
+        }]
+    },
+    "applicationHostRef": {
+        "id": "e23f3538-5906-48c4-95cb-b563ebd4e60f",
+        "name": "ApplicationHost for MsSqlDatabaseSystemTest"
+    }
+}

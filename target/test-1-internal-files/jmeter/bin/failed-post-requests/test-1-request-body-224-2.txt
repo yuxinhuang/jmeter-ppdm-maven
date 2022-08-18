@@ -1,0 +1,19 @@
+{
+    "naturalIds": ["22341992-89a4-4354-ba42-06345cd99a03"],    
+    "name": "Application System 225",    
+    "type": "MICROSOFT_SQL_DATABASE_SYSTEM",    
+    "categories": ["APPLICATION_SYSTEM"],    
+    "vendor": "MICROSOFT",
+    "applicationClusterDetail": {
+        "name": "ClusterDetail for MsSqlDatabaseSystem",    
+        "type": "AAG",    
+        "addresses": [{
+            "value": "10.29.170.2", 
+            "type": "IPV4"
+        }]
+    },
+    "applicationHostRef": {
+        "id": "e23f3538-5906-48c4-95cb-b563ebd4e60f",
+        "name": "ApplicationHost for MsSqlDatabaseSystemTest"
+    }
+}

@@ -1,8 +1,8 @@
-testNum,IP,port,URI,username,password,verb,bodyFile,numDependencies,listDependencies,numThreads,requestsPerThread,rampUpTime
-1,10.235.46.217,8580,/api/v3/infrastructure-objects,admin,Changeme@1,GET,NA,0,NA,250,10,10
-2,10.235.46.217,8580,/api/v3/assets,admin,Changeme@1,GET,NA,0,NA,250,10,10
-3,10.235.46.217,8580,/api/v3/application-systems,admin,Changeme@1,GET,NA,0,NA,250,10,10
-4,10.235.46.217,8580,/api/v3/inventory-sources,admin,Changeme@1,GET,NA,0,NA,250,10,10
-5,10.235.46.217,8580,/api/v3/network-hosts,admin,Changeme@1,GET,NA,0,NA,250,10,10
-6,10.235.46.217,8580,/api/v3/storage-systems,admin,Changeme@1,GET,NA,0,NA,250,10,10
-7,10.235.46.217,8580,/api/v3/infrastructure-objects,admin,Changeme@1,POST,application-system-template,1,/api/v3/infrastructure-objects:application-host-template:hostID,250,10,10
+testNum,IP,URI,port,username,password,verb,numThreads,requestsPerThread,bodyFile,dependencies,numDependencies,testDuration,rampUpTime
+1,127.0.0.1,/,8080,admin,1234567,GET,200,10,NA,NA,0,5,10
+2,127.0.0.1,/,8080,admin,1234567,GET,100,30,NA,NA,0,5,10
+3,127.0.0.1,/,8080,admin,1234567,GET,50,10,NA,NA,0,5,10
+4,127.0.0.1,/,8080,admin,1234567,GET,100,10,NA,NA,0,5,10
+5,127.0.0.1,/,8080,admin,1234567,GET,10,10,NA,NA,0,5,10
+6,127.0.0.1,/,8080,admin,1234567,GET,100,10,NA,NA,0,5,10
+7,127.0.0.1,/,8080,admin,1234567,POST,500,10,application-system-template,/,1,5,10
